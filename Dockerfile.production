@@ -1,0 +1,12 @@
+FROM node:20-alpine
+RUN apk add curl
+
+WORKDIR /opt/web
+
+COPY package.json package-lock.json .
+RUN npm ci
+
+COPY . .
+RUN npx @11ty/eleventy
+
+CMD ["npx", "http-server", "-p", "3000", "./_site"]

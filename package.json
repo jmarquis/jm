@@ -5,6 +5,7 @@
     "@11ty/eleventy": "^2.0.1"
   },
   "dependencies": {
+    "http-server": "^14.1.1",
     "normalize.css": "^8.0.1",
     "sass": "^1.69.5"
   }
