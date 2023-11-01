@@ -59,6 +59,8 @@ function rand(min, max) {
   return min + Math.round(Math.random() * (max - min))
 }
 
+const hue = rand(0, 360);
+
 function updateBanner() {
   const banner = document.querySelector("#banner")
   banner.innerHTML = ''
@@ -75,7 +77,7 @@ function updateBanner() {
       code.split("").forEach(digit => {
         const digitEl = document.createElement("div")
         digitEl.classList.toggle("solid", parseInt(digit) === 1)
-        digitEl.style.backgroundColor = `hsl(0, 0%, ${darkMode ? rand(10, 30) : rand(70, 90)}%)`
+        digitEl.style.backgroundColor = `hsl(${hue}, 20%, ${darkMode ? rand(10, 30) : rand(70, 90)}%)`
         codeEl.appendChild(digitEl)
       })
       bannerCode.appendChild(codeEl)
@@ -88,5 +90,18 @@ function updateBanner() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", updateBanner)
+document.addEventListener("DOMContentLoaded", () => {
+  updateBanner()
+
+  document.body.style.setProperty("--hue", hue);
+
+  // prevent widows
+  Array.prototype.slice.call(document.body.querySelectorAll('h1, h2')).forEach(function(block) {
+    block.innerHTML = block.innerHTML.replace(/^([^<]|<[^>]+>)(.*)\s(\S+)$/, '$1$2&nbsp;$3');
+  })
+  Array.prototype.slice.call(document.body.querySelectorAll('p, h3')).forEach(function(block) {
+    block.innerHTML = block.innerHTML.replace(/^([^<]|<[^>]+>)(.*)\s(\S+)$/, '$1$2&nbsp;$3').replace(/^([^<]|<[^>]+>)(.*)\s(\S+)$/, '$1$2&nbsp;$3');
+  })
+})
+
 window.addEventListener("resize", updateBanner)

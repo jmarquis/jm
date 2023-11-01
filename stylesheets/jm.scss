@@ -5,24 +5,37 @@
 }
 
 ::selection {
-  background-color: #ddd;
+  background-color: hsl(var(--hue), 10%, 90%);
 
   @media (prefers-color-scheme: dark) {
-    background-color: #333;
+    background-color: hsl(var(--hue), 40%, 12%);
+  }
+}
+
+@keyframes fadein {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 body {
-  background-color: #f9f9f9;
+  background-color: hsl(var(--hue), 10%, 95%);
   font-size: 22px;
   font-family: freight-text-pro, serif;
   font-weight: 400;
-  color: #333;
+  color: hsl(var(--hue), 60%, 8%);
   box-sizing: border-box;
+  opacity: 0;
+  animation: fadein 1s ease .2s forwards;
 
   @media (prefers-color-scheme: dark) {
-    background-color: #111;
-    color: #ccc;
+    background-color: hsl(var(--hue), 60%, 8%);
+    color: hsl(var(--hue), 20%, 95%);
   }
 }
 
@@ -60,14 +73,18 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  text-decoration-color: rgba(#888, 20%);
+  text-decoration-color: hsl(var(--hue), 10%, 80%);
+
+  @media (prefers-color-scheme: dark) {
+    text-decoration-color: hsl(var(--hue), 40%, 30%);
+  }
 
   &:hover {
-    color: #000;
-    text-decoration-color: rgba(#888, 50%);
+    color: hsl(var(--hue), 80%, 4%);
+    text-decoration-color: hsl(var(--hue), 60%, 60%);
 
     @media (prefers-color-scheme: dark) {
-      color: #fff;
+      color: hsl(var(--hue), 40%, 100%);
     }
   }
 }
@@ -104,10 +121,6 @@ a {
 
         &.solid {
           visibility: visible;
-
-          @media (prefers-color-scheme: dark) {
-            background-color: #fff;
-          }
         }
       }
     }
@@ -186,8 +199,9 @@ main {
         }
 
         time {
-          font-weight: normal;
-          color: #666;
+          margin-left: 8px;
+          font-family: freight-sans-pro, sans-serif;
+          color: hsl(var(--hue), 10%, 50%);
           white-space: nowrap;
         }
 
@@ -202,9 +216,9 @@ main {
 footer {
   font-weight: 700;
   font-family: freight-sans-pro;
-  opacity: .5;
   margin-top: 64px;
   font-size: 16px;
+  color: hsl(var(--hue), 10%, 50%);
 
   &::before {
     content: "—";
