@@ -9,7 +9,7 @@ registry:
   username: jmarquis
 
   password:
-    - KAMAL_REGISTRY_PASSWORD
+    - KAMAL_REGISTRY_TOKEN
 
 # Inject ENV variables into containers (secrets come from .env).
 # Remember to run `kamal env push` after making changes!

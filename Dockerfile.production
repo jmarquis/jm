@@ -9,4 +9,4 @@ RUN npm ci
 COPY . .
 RUN npx @11ty/eleventy
 
-CMD ["npx", "http-server", "-p", "3000", "./_site"]
+CMD ["npx", "http-server", "-p", "3000", "-a", "0.0.0.0", "./_site"]
