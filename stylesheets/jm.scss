@@ -183,12 +183,12 @@ main {
         a {
           font-family: freight-sans-pro, sans-serif;
           font-weight: bold;
+        }
 
-          time {
-            font-weight: normal;
-            color: #666;
-            white-space: nowrap;
-          }
+        time {
+          font-weight: normal;
+          color: #666;
+          white-space: nowrap;
         }
 
         & + li {
