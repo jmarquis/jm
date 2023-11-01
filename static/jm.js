@@ -65,7 +65,7 @@ function updateBanner() {
 
   const bannerCode = document.createElement("div")
 
-  const string = 'Jeremy Marquis'
+  const string = document.title || 'Jeremy Marquis'
   const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
   string.split("").forEach(char => {
     const charCodes = codes[char.toUpperCase()]
@@ -75,7 +75,7 @@ function updateBanner() {
       code.split("").forEach(digit => {
         const digitEl = document.createElement("div")
         digitEl.classList.toggle("solid", parseInt(digit) === 1)
-        digitEl.style.backgroundColor = `hsl(0, 0%, ${darkMode ? rand(20, 60) : rand(40, 80)}%)`
+        digitEl.style.backgroundColor = `hsl(0, 0%, ${darkMode ? rand(10, 30) : rand(70, 90)}%)`
         codeEl.appendChild(digitEl)
       })
       bannerCode.appendChild(codeEl)

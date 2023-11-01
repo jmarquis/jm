@@ -17,6 +17,10 @@ module.exports = function(config) {
     }
   })
 
+  config.addFilter("title", (title) => {
+    return title === "Jeremy Marquis" ? title : `${title} — Jeremy Marquis`
+  })
+
   return {
     dir: {
       layouts: "layouts",
