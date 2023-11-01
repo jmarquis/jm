@@ -65,8 +65,8 @@ function updateBanner() {
 
   const bannerCode = document.createElement("div")
 
-  const string = document.title || 'Jeremy Marquis'
-  const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const string = (document.title || "Jeremy Marquis").split("—")[0]
+  const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
   string.split("").forEach(char => {
     const charCodes = codes[char.toUpperCase()]
     if (!charCodes) return
