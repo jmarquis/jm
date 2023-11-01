@@ -59,7 +59,9 @@ function rand(min, max) {
   return min + Math.round(Math.random() * (max - min))
 }
 
-const hue = rand(0, 360);
+const now = new Date()
+const dayOfYear = (Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000
+const hue = Math.round(dayOfYear * (360 / 366))
 
 function updateBanner() {
   const banner = document.querySelector("#banner")
