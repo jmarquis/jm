@@ -1,5 +1,5 @@
-FROM node:20-alpine
-RUN apk add curl
+FROM nginx:1.25-alpine
+RUN apk add curl nodejs npm
 
 WORKDIR /opt/web
 
@@ -7,7 +7,6 @@ COPY package.json package-lock.json .
 RUN npm ci
 
 COPY . .
-RUN npx @11ty/eleventy
+RUN npx @11ty/eleventy --output=/usr/share/nginx/html
 
-EXPOSE 3000
-CMD ["npx", "http-server", "-p", "3000", "-a", "0.0.0.0", "./_site"]
+EXPOSE 80
