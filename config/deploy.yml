@@ -6,7 +6,8 @@ servers:
   - 165.227.97.231
 
 registry:
-  username: jmarquis
+  username:
+    - KAMAL_REGISTRY_USER
 
   password:
     - KAMAL_REGISTRY_TOKEN
