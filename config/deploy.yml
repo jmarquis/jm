@@ -22,7 +22,8 @@ registry:
 
 # Use a different ssh user than root
 ssh:
-  user: jeremy
+  user:
+    - SSH_USER
 
 # Configure builder setup.
 builder:
