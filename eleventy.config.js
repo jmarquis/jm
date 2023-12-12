@@ -1,4 +1,6 @@
 const sass = require("sass")
+const markdownIt = require("markdown-it")
+const mila = require("markdown-it-link-attributes")
 
 module.exports = function(config) {
   config.addPassthroughCopy("static")
@@ -20,6 +22,25 @@ module.exports = function(config) {
   config.addFilter("title", (title) => {
     return title === "Jeremy Marquis" ? title : `${title} — Jeremy Marquis`
   })
+
+  let mdLib = markdownIt({
+    html: true,
+    typographer: true
+  })
+
+  config.amendLibrary("md", (mdLib) =>
+    mdLib.use(mila, {
+      matcher(href) {
+        return href.match(/^https?:\/\//)
+      },
+      attrs: {
+        target: "_blank",
+        rel: "noopener"
+      }
+    })
+  )
+
+  config.setLibrary("md", mdLib)
 
   return {
     dir: {
