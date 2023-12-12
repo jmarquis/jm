@@ -58,18 +58,19 @@ h2 {
   font-size: 32px;
   font-family: freight-sans-pro;
   font-weight: 400;
-
-  &.subtitle {
-    font-family: freight-text-pro;
-    font-style: italic;
-    margin-bottom: 1.5em;
-    opacity: .5;
-  }
 }
 
 h3 {
   font-size: 24px;
   font-weight: bold;
+
+  &.subtitle {
+    font-weight: 400;
+    font-family: freight-text-pro;
+    font-style: italic;
+    margin-bottom: 1.5em;
+    opacity: .5;
+  }
 }
 
 p {
