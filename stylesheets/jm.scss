@@ -208,6 +208,7 @@ main {
     }
 
     @media (max-width: 800px) {
+      display: flex;
       flex-flow: column nowrap;
     }
 
@@ -216,6 +217,10 @@ main {
       text-align: right;
       margin-bottom: 12px;
       padding-right: 24px;
+
+      @media (max-width: 800px) {
+        text-align: left;
+      }
     }
 
     nav {
