@@ -47,6 +47,16 @@ h1, h2, h3, p, blockquote {
   }
 }
 
+blockquote {
+
+  & + h1,
+  & + h2,
+  & + h3,
+  & + p {
+    margin-top: 1.25em;
+  }
+}
+
 h1 {
   font-size: 48px;
   line-height: 1.1;
@@ -83,14 +93,14 @@ p {
 
 blockquote {
   padding: 2px 0 2px 24px;
-  box-shadow: inset 2px 0 hsl(var(--hue), 20%, 80%);
+  box-shadow: inset 2px 0 hsl(var(--hue), 10%, 60%);
 
   > p {
     font-style: italic;
   }
 
   @media (prefers-color-scheme: dark) {
-    box-shadow: inset 2px 0 hsl(var(--hue), 20%, 55%);
+    box-shadow: inset 2px 0 hsl(var(--hue), 20%, 40%);
   }
 }
 
@@ -270,8 +280,12 @@ main {
         time {
           margin-left: 8px;
           font-family: freight-sans-pro, sans-serif;
-          color: hsl(var(--hue), 10%, 50%);
           white-space: nowrap;
+          color: hsl(var(--hue), 10%, 60%);
+
+          @media (prefers-color-scheme: dark) {
+            color: hsl(var(--hue), 20%, 40%);
+          }
         }
 
         & + li {
@@ -287,7 +301,11 @@ footer {
   font-family: freight-sans-pro;
   margin-top: 64px;
   font-size: 16px;
-  color: hsl(var(--hue), 10%, 50%);
+  color: hsl(var(--hue), 10%, 60%);
+
+  @media (prefers-color-scheme: dark) {
+    color: hsl(var(--hue), 20%, 40%);
+  }
 
   &::before {
     content: "—";
