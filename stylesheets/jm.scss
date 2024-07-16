@@ -186,7 +186,6 @@ nav {
     &.current {
       background-color: hsl(0, 0%, 8%);
       color: hsl(0, 0%, 95%);
-      pointer-events: none;
 
       &:not(:first-child) {
         text-transform: uppercase;
