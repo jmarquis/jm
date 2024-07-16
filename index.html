@@ -2,19 +2,3 @@
 layout: base
 layout-variant: index
 ---
-
-<main>
-  <h1 class="name">Jeremy Marquis</h1>
-  <nav>
-    <a href="https://linkedin.com/in/marquisjeremy" target="_blank">Software engineer</a>, <a
-      href="https://github.com/jmarquis" target="_blank">hacker</a>, <a href="https://vulpinecustoms.com"
-      target="_blank">controller modder</a>, <a href="https://twitter.com/_jmarquis" target="_blank" title="lol">thought
-      leader</a>, ramblin’ man.
-  </nav>
-  <ul>
-    {%- for note in collections.note reversed -%}
-    <li><a href="{{ note.page.url }}">{{ note.data.title }}</a><time>{{ note.data.date | date: "%B %e, %Y" }}</time>
-    </li>
-    {%- endfor -%}
-  </ul>
-</main>

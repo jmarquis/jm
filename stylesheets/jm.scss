@@ -5,10 +5,10 @@
 }
 
 ::selection {
-  background-color: hsl(var(--hue), 10%, 90%);
+  background-color: hsl(0, 0%, 90%);
 
   @media (prefers-color-scheme: dark) {
-    background-color: hsl(var(--hue), 40%, 12%);
+    background-color: hsl(0, 0%, 12%);
   }
 }
 
@@ -24,18 +24,25 @@
 }
 
 body {
-  background-color: hsl(var(--hue), 10%, 95%);
+  background-color: hsl(0, 0%, 95%);
   font-size: 22px;
-  font-family: freight-text-pro, serif;
+  font-family: source-code-pro, monospace;
   font-weight: 400;
-  color: hsl(var(--hue), 60%, 8%);
+  color: hsl(0, 0%, 8%);
   box-sizing: border-box;
   opacity: 0;
   animation: fadein 1s ease .2s forwards;
+  min-height: 100vh;
 
   @media (prefers-color-scheme: dark) {
-    background-color: hsl(var(--hue), 60%, 8%);
-    color: hsl(var(--hue), 20%, 95%);
+    background-color: hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 95%);
+  }
+
+  &.layout-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -60,13 +67,11 @@ blockquote {
 h1 {
   font-size: 48px;
   line-height: 1.1;
-  font-family: freight-display-pro;
   font-weight: 900;
 }
 
 h2 {
   font-size: 32px;
-  font-family: freight-sans-pro;
   font-weight: 400;
 }
 
@@ -76,13 +81,12 @@ h3 {
 
   &.subtitle {
     font-weight: 400;
-    font-family: freight-text-pro;
     font-style: italic;
     margin-bottom: 1.5em;
-    color: hsl(var(--hue), 10%, 60%);
+    color: hsl(0, 0%, 60%);
 
     @media (prefers-color-scheme: dark) {
-      color: hsl(var(--hue), 20%, 40%);
+      color: hsl(0, 0%, 40%);
     }
   }
 }
@@ -93,14 +97,14 @@ p {
 
 blockquote {
   padding: 2px 0 2px 24px;
-  box-shadow: inset 2px 0 hsl(var(--hue), 10%, 60%);
+  box-shadow: inset 2px 0 hsl(0, 0%, 60%);
 
   > p {
     font-style: italic;
   }
 
   @media (prefers-color-scheme: dark) {
-    box-shadow: inset 2px 0 hsl(var(--hue), 20%, 40%);
+    box-shadow: inset 2px 0 hsl(0, 0%, 40%);
   }
 }
 
@@ -109,94 +113,77 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  text-decoration-color: hsl(var(--hue), 10%, 80%);
+  text-decoration-color: hsl(0, 0%, 80%);
 
   @media (prefers-color-scheme: dark) {
-    text-decoration-color: hsl(var(--hue), 40%, 40%);
+    text-decoration-color: hsl(0, 0%, 40%);
   }
 
   &.back {
     text-decoration: none;
-    color: hsl(var(--hue), 10%, 80%);
+    color: hsl(0, 0%, 80%);
 
     @media (prefers-color-scheme: dark) {
-      color: hsl(var(--hue), 40%, 40%);
+      color: hsl(0, 0%, 40%);
     }
   }
 
   &:hover {
-    color: hsl(var(--hue), 80%, 4%);
-    text-decoration-color: hsl(var(--hue), 60%, 60%);
+    color: hsl(0, 0%, 4%);
+    text-decoration-color: hsl(0, 0%, 60%);
 
     &.back {
-      color: hsl(var(--hue), 80%, 4%);
+      color: hsl(0, 0%, 4%);
     }
 
     @media (prefers-color-scheme: dark) {
-      color: hsl(var(--hue), 40%, 100%);
+      color: hsl(0, 0%, 100%);
 
       &.back {
-        color: hsl(var(--hue), 40%, 100%);
+        color: hsl(0, 0%, 100%);
       }
     }
-  }
-}
-
-.name {
-  font-family: freight-sans-pro;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-decoration: none;
-  color: hsl(var(--hue), 10%, 60%);
-
-  @media (prefers-color-scheme: dark) {
-    color: hsl(var(--hue), 20%, 40%);
   }
 }
 
 ////////////////
 
-#banner-container {
-  overflow: hidden;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  height: 80px;
-}
+nav {
+  width: 100vw;
+  max-width: 688px;
+  margin: 64px auto;
+  font-size: 20px;
+  font-family: major-mono-display;
+  cursor: default;
+  line-height: 1.85;
+  letter-spacing: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-transform: lowercase;
+  padding: 0 10px 0 24px;
 
-#banner {
-  display: flex;
-  flex-flow: row nowrap;
-  width: fit-content;
-  justify-content: center;
-  position: relative;
+  .layout-index & {
+    margin: 0 0 24px;
+  }
 
-  > div {
-    display: flex;
-    flex-flow: row nowrap;
+  a {
+    text-decoration: none;
 
-    > div {
-      display: flex;
-      flex-flow: column nowrap;
+    &:hover {
+      text-transform: uppercase;
+    }
 
-      > div {
-        width: 16px;
-        height: 16px;
-        visibility: hidden;
-
-        &.solid {
-          visibility: visible;
-        }
-      }
+    &.current {
+      background-color: hsl(0, 0%, 8%);
+      color: hsl(0, 0%, 95%);
     }
   }
 }
 
 main {
-  width: 640px;
-  margin: 120px auto;
+  max-width: 688px;
+  margin: 80px auto;
+  padding: 0 24px;
 
   @media (max-width: 720px) {
     width: calc(100vw - 80px);
@@ -207,11 +194,9 @@ main {
   }
 
   body.layout-index & {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-flow: column nowrap;
     margin-top: 30vh;
-    flex-flow: row nowrap;
-    width: 840px;
 
     @media (max-width: 920px) {
       width: calc(100vw - 80px);
@@ -223,36 +208,12 @@ main {
     }
 
     h1 {
-      grid-column: 1 / 2;
-      text-align: right;
-      margin-bottom: 12px;
-      padding-right: 24px;
-
-      @media (max-width: 800px) {
-        text-align: left;
-      }
+      font: inherit;
+      display: inline;
+      text-align: center;
+      margin: 0 0 12px;
     }
 
-    nav {
-      grid-column: 1 / 2;
-      font-size: 32px;
-      font-family: freight-display-pro, serif;
-      font-weight: 900;
-      cursor: default;
-      line-height: 1.1;
-      text-align: right;
-      padding-right: 24px;
-
-      @media (max-width: 800px) {
-        text-align: left;
-        width: 100%;
-        padding: 0;
-      }
-
-      a {
-        text-underline-offset: 3px;
-      }
-    }
 
     ul {
       grid-column: 2 / 3;
@@ -273,18 +234,16 @@ main {
         line-height: 1.25;
 
         a {
-          font-family: freight-sans-pro, sans-serif;
           font-weight: bold;
         }
 
         time {
           margin-left: 8px;
-          font-family: freight-sans-pro, sans-serif;
           white-space: nowrap;
-          color: hsl(var(--hue), 10%, 60%);
+          color: hsl(0, 0%, 60%);
 
           @media (prefers-color-scheme: dark) {
-            color: hsl(var(--hue), 20%, 40%);
+            color: hsl(0, 0%, 40%);
           }
         }
 
@@ -298,13 +257,12 @@ main {
 
 footer {
   font-weight: 700;
-  font-family: freight-sans-pro;
   margin-top: 64px;
   font-size: 16px;
-  color: hsl(var(--hue), 10%, 60%);
+  color: hsl(0, 0%, 60%);
 
   @media (prefers-color-scheme: dark) {
-    color: hsl(var(--hue), 20%, 40%);
+    color: hsl(0, 0%, 40%);
   }
 
   &::before {
