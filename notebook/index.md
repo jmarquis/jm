@@ -4,10 +4,11 @@ layout-variant: notebook
 ---
 
 <main>
-  <ul>
     {%- for note in collections.note reversed -%}
-    <li><a href="{{ note.page.url }}">{{ note.data.title }}</a><time>{{ note.data.date | date: "%B %e, %Y" }}</time>
-    </li>
+        <article>
+            <h2><a href="{{ note.page.url }}">{{ note.data.title }}</a></h2>
+            <h3 class="subtitle">{{ note.data.subtitle }}</h3>
+            <time>{{ note.data.date | date: "%B %e, %Y" }}</time>
+        </article>
     {%- endfor -%}
-  </ul>
 </main>
